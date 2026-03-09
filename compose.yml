@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+    postgres:
+        image: postgres:15
+        healthcheck:
+            test: ["CMD", "pg_isready", "-U", "airflow"]
+            interval: 10s
+            retries: 5
+        environment:
+            POSTGRES_USER: airflow
+            POSTGRES_PASSWORD: airflow
+            POSTGRES_DB: airflow
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+        networks:
+            - docflow-net
+
+    airflow:
+        image: apache/airflow:2.9.2
+        command: >
+            bash -c "airflow db migrate && airflow standalone"
+        environment:
+            AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+            AIRFLOW__CORE__EXECUTOR: LocalExecutor
+            AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+            _AIRFLOW_WWW_USER_CREATE: "true"
+            _AIRFLOW_WWW_USER_USERNAME: admin
+            _AIRFLOW_WWW_USER_PASSWORD: admin
+        depends_on:
+            postgres:
+                condition: service_healthy
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./dags:/opt/airflow/dags
+            - ./logs:/opt/airflow/logs
+            - ./ingestion:/opt/airflow/ingestion
+            - ./processing:/opt/airflow/processing
+            - ./data_quality:/opt/airflow/data_quality
+            - ./config:/opt/airflow/config
+        networks:
+            - docflow-net
+
+    qdrant:
+        image: qdrant/qdrant:latest
+        volumes:
+            - qdrant_data:/qdrant/storage
+        ports:
+            - "6334:6334"
+            - "6333:6333"
+        networks:
+            - docflow-net
+
+volumes:
+    postgres_data:
+    qdrant_data:
+
+networks:
+    docflow-net:
+        driver: bridge
