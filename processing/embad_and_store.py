@@ -17,21 +17,19 @@ def load_silver_data():
         return df
     else:
         logger.error(f"No Silver Files has been found for date {fetching_date}")
-        raise 
+        raise FileNotFoundError(f"No silver files found for {fetching_date}")
     
 def text_preparation():
     df = load_silver_data()
-    text = [f"{row["title"]}. {row["abstract"]}" for row in df.to_dicts()]
-    return text
+    text = [f"{row['title']}. {row['abstract']}" for row in df.to_dicts()]
+    return df.to_dicts(),text
     
 def run_embedding():
-    data_text = text_preparation()
+    df_dict,data_text = text_preparation()
     model = TextEmbedding("BAAI/bge-small-en-v1.5")
     embeddings = list(model.embed(data_text))
-    client = QdrantClient(host="localhost",ports="6333")
-    client.rec
-    
-
+    client = QdrantClient(host="localhost",port=6333)
+    client.recreate_collection("arxiv_papers",vectors_config=VectorParams(size=384, distance=Distance.COSINE))
     
 if __name__ == "__main__":
-    run_embedding
+    run_embedding()
