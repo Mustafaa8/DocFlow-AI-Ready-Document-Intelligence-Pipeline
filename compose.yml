@@ -19,7 +19,8 @@ services:
             - docflow-net
 
     airflow:
-        image: apache/airflow:2.9.2
+        #image: apache/airflow:2.9.2
+        build: .
         command: >
             bash -c "airflow db migrate && airflow standalone"
         environment:

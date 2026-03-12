@@ -1,0 +1,1 @@
+[2026-03-12T22:30:02.016+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: docflow_pipeline.ingestion_data scheduled__2026-03-11T06:00:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

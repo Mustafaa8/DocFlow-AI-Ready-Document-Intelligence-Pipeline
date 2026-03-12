@@ -1,9 +1,10 @@
-great_expectations==1.14.0
-huggingface_hub==1.6.0
-loguru==0.7.3
+great-expectations==1.14.0
+pydantic==2.12.5
+qdrant-client==1.13.3
 polars==1.38.1
+fastembed==0.7.4
+loguru==0.7.3
 pypdf==6.8.0
 python-dotenv==1.2.2
-qdrant-client==1.17.0
 requests==2.32.5
-pyarrow==23.0.1
+pyarrow==19.0.1
