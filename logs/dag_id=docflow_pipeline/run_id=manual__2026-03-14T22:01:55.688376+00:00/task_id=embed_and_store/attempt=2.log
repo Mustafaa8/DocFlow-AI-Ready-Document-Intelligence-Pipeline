@@ -1,0 +1,29 @@
+[2026-03-14T22:16:13.739+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-14T22:16:13.859+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: docflow_pipeline.embed_and_store manual__2026-03-14T22:01:55.688376+00:00 [queued]>
+[2026-03-14T22:16:13.884+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: docflow_pipeline.embed_and_store manual__2026-03-14T22:01:55.688376+00:00 [queued]>
+[2026-03-14T22:16:13.886+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 1
+[2026-03-14T22:16:13.988+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): embed_and_store> on 2026-03-14 22:01:55.688376+00:00
+[2026-03-14T22:16:14.012+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'docflow_pipeline', 'embed_and_store', 'manual__2026-03-14T22:01:55.688376+00:00', '--job-id', '80', '--raw', '--subdir', 'DAGS_FOLDER/docflow_dag.py', '--cfg-path', '/tmp/tmpgxwwmn58']
+[2026-03-14T22:16:14.022+0000] {standard_task_runner.py:91} INFO - Job 80: Subtask embed_and_store
+[2026-03-14T22:16:14.024+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=187) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-14T22:16:14.025+0000] {standard_task_runner.py:63} INFO - Started process 190 to run task
+[2026-03-14T22:16:14.324+0000] {task_command.py:426} INFO - Running <TaskInstance: docflow_pipeline.embed_and_store manual__2026-03-14T22:01:55.688376+00:00 [running]> on host 2a1c64a84883
+[2026-03-14T22:16:14.786+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='docflow_pipeline' AIRFLOW_CTX_TASK_ID='embed_and_store' AIRFLOW_CTX_EXECUTION_DATE='2026-03-14T22:01:55.688376+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-14T22:01:55.688376+00:00'
+[2026-03-14T22:16:14.788+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-14T22:16:27.047+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:16:27.046 | INFO     | processing.embad_and_store:run_embedding:33 - Loaded 555 papers
+[2026-03-14T22:16:30.662+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:16:30.661 | INFO     | processing.embad_and_store:run_embedding:36 - Model loaded — starting embeddings
+[2026-03-14T22:16:31.382+0000] {logging_mixin.py:188} WARNING - /opt/***/processing/embad_and_store.py:37 UserWarning: Qdrant client version 1.13.3 is incompatible with server version 1.17.0. Major versions should match and minor version difference must not exceed 1. Set check_version=False to skip version check.
+[2026-03-14T22:16:31.412+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:16:31.411 | INFO     | processing.embad_and_store:run_embedding:43 - Collection created
+[2026-03-14T22:17:53.901+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:17:53.890 | INFO     | processing.embad_and_store:run_embedding:66 - Upserted batch 1/6
+[2026-03-14T22:18:55.395+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:18:55.385 | INFO     | processing.embad_and_store:run_embedding:66 - Upserted batch 2/6
+[2026-03-14T22:19:45.483+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:19:45.482 | INFO     | processing.embad_and_store:run_embedding:66 - Upserted batch 3/6
+[2026-03-14T22:20:35.977+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:20:35.974 | INFO     | processing.embad_and_store:run_embedding:66 - Upserted batch 4/6
+[2026-03-14T22:21:34.340+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:21:34.340 | INFO     | processing.embad_and_store:run_embedding:66 - Upserted batch 5/6
+[2026-03-14T22:22:02.612+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:22:02.610 | INFO     | processing.embad_and_store:run_embedding:66 - Upserted batch 6/6
+[2026-03-14T22:22:02.618+0000] {logging_mixin.py:188} WARNING - 2026-03-14 22:22:02.615 | INFO     | processing.embad_and_store:run_embedding:69 - Done — 555 points upserted into Qdrant
+[2026-03-14T22:22:04.085+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-03-14T22:22:04.269+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-14T22:22:05.554+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=docflow_pipeline, task_id=embed_and_store, run_id=manual__2026-03-14T22:01:55.688376+00:00, execution_date=20260314T220155, start_date=20260314T221613, end_date=20260314T222205
+[2026-03-14T22:22:07.650+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-14T22:22:09.245+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-14T22:22:09.298+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,47 @@
+[2026-03-14T21:19:22.857+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-14T21:19:22.951+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: docflow_pipeline.ingest_arxiv scheduled__2026-03-12T06:00:00+00:00 [queued]>
+[2026-03-14T21:19:22.975+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: docflow_pipeline.ingest_arxiv scheduled__2026-03-12T06:00:00+00:00 [queued]>
+[2026-03-14T21:19:22.976+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-03-14T21:19:23.056+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): ingest_arxiv> on 2026-03-12 06:00:00+00:00
+[2026-03-14T21:19:23.072+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'docflow_pipeline', 'ingest_arxiv', 'scheduled__2026-03-12T06:00:00+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/docflow_dag.py', '--cfg-path', '/tmp/tmpcqjn7zi8']
+[2026-03-14T21:19:23.079+0000] {standard_task_runner.py:91} INFO - Job 58: Subtask ingest_arxiv
+[2026-03-14T21:19:23.089+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=189) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-14T21:19:23.092+0000] {standard_task_runner.py:63} INFO - Started process 190 to run task
+[2026-03-14T21:19:23.321+0000] {task_command.py:426} INFO - Running <TaskInstance: docflow_pipeline.ingest_arxiv scheduled__2026-03-12T06:00:00+00:00 [running]> on host 14211cbfbbcc
+[2026-03-14T21:19:23.704+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='docflow_pipeline' AIRFLOW_CTX_TASK_ID='ingest_arxiv' AIRFLOW_CTX_EXECUTION_DATE='2026-03-12T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-12T06:00:00+00:00'
+[2026-03-14T21:19:23.706+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-14T21:19:23.949+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:19:23.948 | INFO     | ingestion.ingest_arxiv:run_ingestion:67 - Starting fetching for category: cs.AI
+[2026-03-14T21:19:24.312+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-14T21:19:24.313+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/docflow_dag.py", line 10, in ingest
+    run_ingestion()
+  File "/opt/airflow/ingestion/ingest_arxiv.py", line 73, in run_ingestion
+    results = fetch_arxiv_papers(category, start, 100)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/ingestion/ingest_arxiv.py", line 42, in fetch_arxiv_papers
+    root = et.fromstring(response.text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/xml/etree/ElementTree.py", line 1335, in XML
+    parser.feed(text)
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 1, column 1
+[2026-03-14T21:19:24.364+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=docflow_pipeline, task_id=ingest_arxiv, run_id=scheduled__2026-03-12T06:00:00+00:00, execution_date=20260312T060000, start_date=20260314T211922, end_date=20260314T211924
+[2026-03-14T21:19:24.438+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 58 for task ingest_arxiv (not well-formed (invalid token): line 1, column 1; 190)
+[2026-03-14T21:19:24.491+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-03-14T21:19:24.556+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-14T21:19:24.595+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

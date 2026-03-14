@@ -1,0 +1,29 @@
+[2026-03-14T21:54:27.076+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-14T21:54:27.381+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: docflow_pipeline.ingest_arxiv manual__2026-03-14T21:54:23.176650+00:00 [queued]>
+[2026-03-14T21:54:27.417+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: docflow_pipeline.ingest_arxiv manual__2026-03-14T21:54:23.176650+00:00 [queued]>
+[2026-03-14T21:54:27.418+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-03-14T21:54:27.477+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): ingest_arxiv> on 2026-03-14 21:54:23.176650+00:00
+[2026-03-14T21:54:27.505+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'docflow_pipeline', 'ingest_arxiv', 'manual__2026-03-14T21:54:23.176650+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/docflow_dag.py', '--cfg-path', '/tmp/tmpk4mdr00y']
+[2026-03-14T21:54:27.525+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=221) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-14T21:54:27.527+0000] {standard_task_runner.py:63} INFO - Started process 222 to run task
+[2026-03-14T21:54:27.527+0000] {standard_task_runner.py:91} INFO - Job 70: Subtask ingest_arxiv
+[2026-03-14T21:54:27.828+0000] {task_command.py:426} INFO - Running <TaskInstance: docflow_pipeline.ingest_arxiv manual__2026-03-14T21:54:23.176650+00:00 [running]> on host 2a1c64a84883
+[2026-03-14T21:54:28.223+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='docflow_pipeline' AIRFLOW_CTX_TASK_ID='ingest_arxiv' AIRFLOW_CTX_EXECUTION_DATE='2026-03-14T21:54:23.176650+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-14T21:54:23.176650+00:00'
+[2026-03-14T21:54:28.224+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-14T21:54:28.491+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:54:28.490 | INFO     | ingestion.ingest_arxiv:run_ingestion:65 - Starting fetching for category: cs.AI
+[2026-03-14T21:54:29.547+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:54:29.546 | INFO     | ingestion.ingest_arxiv:run_ingestion:73 - Fetched page 1 for cs.AI
+[2026-03-14T21:55:14.241+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:55:14.241 | INFO     | ingestion.ingest_arxiv:run_ingestion:73 - Fetched page 2 for cs.AI
+[2026-03-14T21:55:48.794+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:55:48.793 | INFO     | ingestion.ingest_arxiv:run_ingestion:73 - Fetched page 3 for cs.AI
+[2026-03-14T21:56:27.807+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:56:27.807 | INFO     | ingestion.ingest_arxiv:run_ingestion:77 - Saved 300 into ./bronze/arxiv_cs.AI_2026-03-14.json
+[2026-03-14T21:56:27.808+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:56:27.808 | INFO     | ingestion.ingest_arxiv:run_ingestion:65 - Starting fetching for category: cs.LG
+[2026-03-14T21:56:28.917+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:56:28.916 | INFO     | ingestion.ingest_arxiv:run_ingestion:73 - Fetched page 1 for cs.LG
+[2026-03-14T21:57:11.498+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:57:11.498 | INFO     | ingestion.ingest_arxiv:run_ingestion:73 - Fetched page 2 for cs.LG
+[2026-03-14T21:57:52.148+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:57:52.148 | INFO     | ingestion.ingest_arxiv:run_ingestion:73 - Fetched page 3 for cs.LG
+[2026-03-14T21:58:22.194+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:58:22.194 | INFO     | ingestion.ingest_arxiv:run_ingestion:77 - Saved 300 into ./bronze/arxiv_cs.LG_2026-03-14.json
+[2026-03-14T21:58:22.195+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:58:22.195 | INFO     | ingestion.ingest_arxiv:run_ingestion:78 - Finished Fetching Process
+[2026-03-14T21:58:22.196+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-03-14T21:58:22.197+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-14T21:58:22.265+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=docflow_pipeline, task_id=ingest_arxiv, run_id=manual__2026-03-14T21:54:23.176650+00:00, execution_date=20260314T215423, start_date=20260314T215427, end_date=20260314T215822
+[2026-03-14T21:58:22.391+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-14T21:58:22.465+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-14T21:58:22.496+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

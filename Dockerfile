@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 USER airflow
 
 RUN pip install --no-cache-dir \
+    "grpcio==1.59.3" \
     "pydantic==2.12.5" \
     "great-expectations==1.14.0" \
     "qdrant-client==1.13.3" \

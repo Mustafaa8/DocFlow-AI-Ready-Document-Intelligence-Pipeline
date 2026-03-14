@@ -34,7 +34,7 @@ def run_embedding():
     model = TextEmbedding("BAAI/bge-small-en-v1.5")
 
     logger.info("Model loaded — starting embeddings")
-    client = QdrantClient(host="localhost", port=6333)
+    client = QdrantClient(host="qdrant", port=6333, prefer_grpc=False)
     if not client.collection_exists("arxiv_papers"):
         client.create_collection(
             "arxiv_papers",

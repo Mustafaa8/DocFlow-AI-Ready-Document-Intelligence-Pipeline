@@ -1,0 +1,21 @@
+[2026-03-14T21:38:45.744+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-14T21:38:45.865+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: docflow_pipeline.process_silver manual__2026-03-14T21:34:16.226961+00:00 [queued]>
+[2026-03-14T21:38:45.891+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: docflow_pipeline.process_silver manual__2026-03-14T21:34:16.226961+00:00 [queued]>
+[2026-03-14T21:38:45.892+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-03-14T21:38:46.061+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_silver> on 2026-03-14 21:34:16.226961+00:00
+[2026-03-14T21:38:46.088+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=467) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-14T21:38:46.090+0000] {standard_task_runner.py:63} INFO - Started process 468 to run task
+[2026-03-14T21:38:46.084+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'docflow_pipeline', 'process_silver', 'manual__2026-03-14T21:34:16.226961+00:00', '--job-id', '66', '--raw', '--subdir', 'DAGS_FOLDER/docflow_dag.py', '--cfg-path', '/tmp/tmp5_ccthfk']
+[2026-03-14T21:38:46.093+0000] {standard_task_runner.py:91} INFO - Job 66: Subtask process_silver
+[2026-03-14T21:38:46.263+0000] {task_command.py:426} INFO - Running <TaskInstance: docflow_pipeline.process_silver manual__2026-03-14T21:34:16.226961+00:00 [running]> on host 14211cbfbbcc
+[2026-03-14T21:38:46.668+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='docflow_pipeline' AIRFLOW_CTX_TASK_ID='process_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-03-14T21:34:16.226961+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-14T21:34:16.226961+00:00'
+[2026-03-14T21:38:46.670+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-14T21:38:47.645+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:38:47.645 | INFO     | processing.process_silver:run_processing:23 - Rows loaded : 600 row
+[2026-03-14T21:38:48.720+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:38:48.720 | INFO     | processing.process_silver:run_processing:38 - Rows after processing and deduplication : 555 row
+[2026-03-14T21:38:48.967+0000] {logging_mixin.py:188} WARNING - 2026-03-14 21:38:48.967 | INFO     | processing.process_silver:run_processing:41 - Silver file has been written to ./silver/arxiv_2026-03-14.parquet
+[2026-03-14T21:38:48.968+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-03-14T21:38:48.969+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-14T21:38:48.999+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=docflow_pipeline, task_id=process_silver, run_id=manual__2026-03-14T21:34:16.226961+00:00, execution_date=20260314T213416, start_date=20260314T213845, end_date=20260314T213848
+[2026-03-14T21:38:49.100+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-14T21:38:49.168+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-14T21:38:49.199+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

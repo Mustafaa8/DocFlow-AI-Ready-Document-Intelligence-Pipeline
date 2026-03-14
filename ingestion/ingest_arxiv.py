@@ -8,7 +8,7 @@ from datetime import datetime as dt
 import requests
 from loguru import logger
 
-BASE_URL = "http://export.arxiv.org/api/query"
+BASE_URL = "https://export.arxiv.org/api/query"
 ARXIV_NS = "{http://www.w3.org/2005/Atom}"
 
 
@@ -22,28 +22,25 @@ def getting_pdf_link(entry):
     return pdf_url
 
 
-def fetch_arxiv_papars(category: str, start: int, max_results: int):
+def fetch_arxiv_papers(category: str, start: int, max_results: int):
     params = {
         "search_query": f"cat:{category}",
         "start": start,
         "max_results": max_results,
     }
-    for i in range(3):
-        HEADERS = {
-            "User-Agent": "Mozilla/5.0 (research pipeline; mailto:mostafa.abdallah99@outlook.com)"
-        }
-        response = requests.get(BASE_URL, params=params, headers=HEADERS)
+
+    for attempt in range(3):
+        response = requests.get(BASE_URL, params=params)
         if response.status_code == 429 or not response.text.strip():
-            wait = 30 * (i + 1)
+            wait = 30 * (attempt + 1)
             logger.warning(f"Rate limited. Waiting {wait}s before retry {i + 1}/3")
             time.sleep(wait)
             continue
-
         response.raise_for_status()
         root = et.fromstring(response.text)
-        papars_for_category = []
+        papers_for_category = []
         for entry in root.findall(f"{ARXIV_NS}entry"):
-            papars_for_category.append(
+            papers_for_category.append(
                 {
                     "pdf_url": getting_pdf_link(entry),
                     "id": entry.find(f"{ARXIV_NS}id").text.strip(),
@@ -55,7 +52,7 @@ def fetch_arxiv_papars(category: str, start: int, max_results: int):
                     "source": "arxiv",
                 }
             )
-        return papars_for_category
+        return papers_for_category
 
     raise Exception(f"Failed to fetch {category} start={start} after 3 retries")
 
@@ -66,18 +63,18 @@ def run_ingestion():
 
     for category in categories:
         logger.info(f"Starting fetching for category: {category}")
-        all_papars = []
+        all_papers = []
         date = dt.now().strftime("%Y-%m-%d")
         filename = f"./bronze/arxiv_{category}_{date}.json"
-        for page in range(2):
+        for page in range(3):
             start = page * 100
-            results = fetch_arxiv_papars(category, start, 100)
-            all_papars.extend(results)
+            results = fetch_arxiv_papers(category, start, 100)
+            all_papers.extend(results)
             logger.info(f"Fetched page {page + 1} for {category}")
             time.sleep(random.randint(30, 45))
         with open(filename, "w") as f:
-            json.dump(all_papars, f, indent=2)
-        logger.info(f"Saved {len(all_papars)} into {filename}")
+            json.dump(all_papers, f, indent=2)
+        logger.info(f"Saved {len(all_papers)} into {filename}")
     logger.info("Finished Fetching Process")
 
 
