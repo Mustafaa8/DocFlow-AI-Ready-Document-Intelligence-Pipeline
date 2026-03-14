@@ -628,3 +628,45 @@
 [2026-03-14T22:27:54.075+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:27:54.074+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2026-03-14T22:27:54.144+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:27:54.143+0000] {dag.py:3954} INFO - Setting next_dagrun for docflow_pipeline to 2026-03-13 06:00:00+00:00, run_after=2026-03-16 06:00:00+00:00
 [2026-03-14T22:27:54.231+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/docflow_dag.py took 0.446 seconds
+[2026-03-14T22:28:24.514+0000] {processor.py:161} INFO - Started process (PID=344) to work on /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:28:24.517+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/docflow_dag.py for tasks to queue
+[2026-03-14T22:28:24.530+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:28:24.528+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:28:24.586+0000] {processor.py:840} INFO - DAG(s) 'docflow_pipeline' retrieved from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:28:24.695+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:28:24.695+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-03-14T22:28:24.776+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:28:24.776+0000] {dag.py:3954} INFO - Setting next_dagrun for docflow_pipeline to 2026-03-13 06:00:00+00:00, run_after=2026-03-16 06:00:00+00:00
+[2026-03-14T22:28:24.918+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/docflow_dag.py took 0.433 seconds
+[2026-03-14T22:28:55.230+0000] {processor.py:161} INFO - Started process (PID=349) to work on /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:28:55.290+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/docflow_dag.py for tasks to queue
+[2026-03-14T22:28:55.309+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:28:55.307+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:28:55.363+0000] {processor.py:840} INFO - DAG(s) 'docflow_pipeline' retrieved from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:28:55.489+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:28:55.488+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-03-14T22:28:55.563+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:28:55.562+0000] {dag.py:3954} INFO - Setting next_dagrun for docflow_pipeline to 2026-03-13 06:00:00+00:00, run_after=2026-03-16 06:00:00+00:00
+[2026-03-14T22:28:55.721+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/docflow_dag.py took 0.539 seconds
+[2026-03-14T22:29:25.927+0000] {processor.py:161} INFO - Started process (PID=354) to work on /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:29:25.951+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/docflow_dag.py for tasks to queue
+[2026-03-14T22:29:25.957+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:29:25.956+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:29:25.990+0000] {processor.py:840} INFO - DAG(s) 'docflow_pipeline' retrieved from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:29:26.077+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:29:26.076+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-03-14T22:29:26.136+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:29:26.136+0000] {dag.py:3954} INFO - Setting next_dagrun for docflow_pipeline to 2026-03-13 06:00:00+00:00, run_after=2026-03-16 06:00:00+00:00
+[2026-03-14T22:29:26.233+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/docflow_dag.py took 0.325 seconds
+[2026-03-14T22:29:56.487+0000] {processor.py:161} INFO - Started process (PID=359) to work on /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:29:56.490+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/docflow_dag.py for tasks to queue
+[2026-03-14T22:29:56.495+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:29:56.494+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:29:56.536+0000] {processor.py:840} INFO - DAG(s) 'docflow_pipeline' retrieved from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:29:56.668+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:29:56.667+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-03-14T22:29:56.751+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:29:56.750+0000] {dag.py:3954} INFO - Setting next_dagrun for docflow_pipeline to 2026-03-13 06:00:00+00:00, run_after=2026-03-16 06:00:00+00:00
+[2026-03-14T22:29:56.870+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/docflow_dag.py took 0.406 seconds
+[2026-03-14T22:30:27.151+0000] {processor.py:161} INFO - Started process (PID=364) to work on /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:30:27.187+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/docflow_dag.py for tasks to queue
+[2026-03-14T22:30:27.192+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:30:27.191+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:30:27.226+0000] {processor.py:840} INFO - DAG(s) 'docflow_pipeline' retrieved from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:30:27.317+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:30:27.316+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-03-14T22:30:27.378+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:30:27.377+0000] {dag.py:3954} INFO - Setting next_dagrun for docflow_pipeline to 2026-03-13 06:00:00+00:00, run_after=2026-03-16 06:00:00+00:00
+[2026-03-14T22:30:27.459+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/docflow_dag.py took 0.328 seconds
+[2026-03-14T22:30:57.747+0000] {processor.py:161} INFO - Started process (PID=369) to work on /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:30:57.750+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/docflow_dag.py for tasks to queue
+[2026-03-14T22:30:57.755+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:30:57.754+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:30:57.791+0000] {processor.py:840} INFO - DAG(s) 'docflow_pipeline' retrieved from /opt/airflow/dags/docflow_dag.py
+[2026-03-14T22:30:57.904+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:30:57.904+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-03-14T22:30:57.967+0000] {logging_mixin.py:188} INFO - [2026-03-14T22:30:57.966+0000] {dag.py:3954} INFO - Setting next_dagrun for docflow_pipeline to 2026-03-13 06:00:00+00:00, run_after=2026-03-16 06:00:00+00:00
+[2026-03-14T22:30:58.040+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/docflow_dag.py took 0.313 seconds
