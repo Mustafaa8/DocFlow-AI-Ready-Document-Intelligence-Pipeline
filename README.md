@@ -77,6 +77,8 @@ docflow/
 
 ## Data Flow
 
+![DAG Success](docs/airflow_DAG.png)
+
 ### 1. Ingestion (Bronze)
 Fetches research papers from the arXiv API across two categories (`cs.AI`, `cs.LG`). Implements retry logic with exponential backoff for rate limiting. Stores raw JSON files partitioned by category and date.
 
@@ -104,6 +106,8 @@ Typical result: 600 raw papers → 555 after deduplication
 
 ### 4. Embedding & Storage (Gold)
 Generates semantic embeddings using FastEmbed (`BAAI/bge-small-en-v1.5`, 384 dimensions) and upserts into Qdrant in batches of 50. Each Qdrant point contains the embedding vector and a payload with full paper metadata.
+
+![Qdrant Dashboard](docs/qdrant_dashboard.png)
 
 ---
 
