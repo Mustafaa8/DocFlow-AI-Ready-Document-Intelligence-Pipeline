@@ -6,6 +6,8 @@ A production-style data pipeline that ingests academic research papers, validate
 
 ## Architecture
 
+<img width="630" height="370" alt="DocFlow drawio" src="https://github.com/user-attachments/assets/4691b530-ffb4-413b-8e59-c34a7a1174c3" />
+
 ```
 arXiv API
     │
